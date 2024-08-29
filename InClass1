@@ -1,0 +1,32 @@
+# Adam Biggs 8/29/2024
+# Lab 1 - Swap Elements
+
+.data
+A: .word 7, 42, 0, 27, 16, 8, 4, 15, 31, 45
+n: .word 3
+m: .word 7
+
+.text
+.globl main
+# Swap 2 elements, n, and m
+main:
+
+la $a0, A # Load address of array A to $a0
+lw $a1, n # Load word
+lw $a2, m # Load word
+
+# Find Address in the Array for N
+sll $t1, $a1, 2 # Calculate offset for array index of N
+add $t1, $a0, $t1 # Calculate address of array index of N
+
+# Find Address in the Array for M
+sll $t2, $a2, 2 # Calculate offset for array index of M
+add $t2, $a0, $t2 # Calculate address of array index of M
+
+# Load actual number of address into temp 4, 5
+lw $t4, 0($t1)
+lw $t5, 0($t2)
+    
+# Swap Elements
+sw $t4, 0($t2)
+sw $t5, 0($t1)
