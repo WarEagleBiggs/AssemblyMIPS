@@ -2,9 +2,9 @@
 # Lab 1 - Swap Elements
 
 .data
-A: .word 7, 42, 0, 27, 16, 8, 4, 15, 31, 45
-n: .word 3
-m: .word 6
+A: .word 7, 42, 0, 27, 16, 8, 4, 15, 31, 45 #array
+n: .word 3 #int n = 3 (can be changed to anything)
+m: .word 6 #int m = 6
 
 .text
 .globl main
@@ -13,8 +13,8 @@ m: .word 6
 main:
 
 la $a0, A # Load address of array A to $a0
-lw $a1, n # Load word
-lw $a2, m # Load word
+lw $a1, n # Load word n
+lw $a2, m # Load word m
 
 # Find Address in the Array for N
 sll $t1, $a1, 2 # Calculate offset for array index of N
@@ -28,6 +28,6 @@ add $t2, $a0, $t2 # Calculate address of array index of M
 lw $t4, 0($t1)
 lw $t5, 0($t2)
     
-# Swap Elements
+# Swap Elements Position
 sw $t4, 0($t2)
 sw $t5, 0($t1)
