@@ -1,0 +1,23 @@
+.data
+prompt:      .asciiz "Enter a string: "
+userString:  .space 40
+
+.text
+.globl main
+
+main:
+  li $v0, 4
+  la $a0, prompt
+  syscall
+
+  li $v0, 8
+  la $a0, userString
+  li $a1, 40
+  syscall
+
+  li $v0, 4
+  la $a0, userString
+  syscall
+
+  li $v0, 10
+  syscall
