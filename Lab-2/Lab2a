@@ -1,23 +1,29 @@
+#Lab 2 - Adam Biggs ---------------------------------------
 .data
-prompt:      .asciiz "Enter a string: "
-userString:  .space 40
+#variables
+prompt:      .asciiz "Enter a string: " #prompt message
+userString:  .space 40	#length of maximum response is 40
 
 .text
 .globl main
-
+#main method ----------------------------------------------
 main:
-  li $v0, 4
+  #print prompt
+  li $v0, 4 #4 = print_string
   la $a0, prompt
   syscall
 
-  li $v0, 8
+  #input detection
+  li $v0, 8 #8 = read_string
   la $a0, userString
   li $a1, 40
   syscall
 
-  li $v0, 4
+  #print input
+  li $v0, 4 #4 = print_string
   la $a0, userString
   syscall
 
-  li $v0, 10
+  #end
+  li $v0, 10 #10 = exit
   syscall
