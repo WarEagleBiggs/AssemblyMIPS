@@ -1,4 +1,4 @@
-#Lab 2 - Adam Biggs ---------------------------------------
+#Lab 2a - Adam Biggs ---------------------------------------
 .data
 #variables
 prompt:      .asciiz "Enter a string: " #prompt message
