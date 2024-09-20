@@ -1,0 +1,52 @@
+#Lab 2C - Adam Biggs ---------------------------------------
+
+.data
+#initialize var
+resultZ: .word 0
+
+.text
+.globl main
+
+main:
+  li $t0, 10 #a
+  li $t1, 15 #b
+  li $t2, 6 #c
+
+  bgt $t0, $t1, checkC
+  li $t3, 5
+  blt $t2, $t3, case1
+
+checkC:
+  addi $t2, $t2, 1
+  li $t3, 7
+  beq $t2, $t3, case2
+  li $t4, 3
+  b switch
+
+#case to check against 1
+case1:
+  li $t4, 1
+  b switch
+
+#case to check against 2
+case2:
+  li $t4, 2
+
+switch:
+  beq $t4, 1, set1
+  beq $t4, 2, set2
+  li $t4, 0
+  b store
+
+set1:
+  li $t4, -1
+  b store
+
+set2:
+  li $t4, -2
+
+store: #store final result
+  sw $t4, resultZ
+
+  li $v0, 10
+  syscall

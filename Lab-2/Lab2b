@@ -1,30 +1,23 @@
 #Lab 2b - Adam Biggs ---------------------------------------
-#int main()
-#{
-# int A=15;
-# int B=10;
-# int C=7;
-# int D=2;
-# int E=18;
-# int F=-3;
-# int Z=0;
-# Z = (A+B) + (C-D) + (E+F) - (A-C);
-#}
 
 .data
-resultZ: .word 0
+#initialize var
+resultZ: .word 0 #Z
 
 .text
 .globl main
 
 main:
-  li $t0, 15
-  li $t1, 10
-  li $t2, 7
-  li $t3, 2
-  li $t4, 18
-  li $t5, -3
+  #var setup
+  li $t0, 15 #A
+  li $t1, 10 #B
+  li $t2, 7 #C
+  li $t3, 2 #D
+  li $t4, 18 #E
+  li $t5, -3 #F
 
+#basic operations
+# Z = (A+B) + (C-D) + (E+F) - (A-C);
   add $t6, $t0, $t1
   sub $t7, $t2, $t3
   add $t8, $t4, $t5
