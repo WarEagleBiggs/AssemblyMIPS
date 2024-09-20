@@ -16,6 +16,7 @@ main:
   li $t3, 5
   blt $t2, $t3, case1
 
+#parameter
 checkC:
   addi $t2, $t2, 1
   li $t3, 7
